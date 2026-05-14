@@ -1,0 +1,43 @@
+{
+  "Layout": {
+    "nav": {
+      "home": "Accueil",
+      "catalogue": "Catalogue",
+      "gallery": "Galerie",
+      "contact": "Contact"
+    },
+    "language": "Langue",
+    "quoteCta": "Demander un devis",
+    "quoteTitle": "Votre devis",
+    "emptyQuote": "Votre demande de devis est vide.",
+    "browseCatalogue": "Parcourir le catalogue",
+    "dailyEstimate": "Estimation par jour",
+    "quickLinks": "Liens rapides",
+    "contact": "Contact",
+    "footerDescription": "L'elegance et la tradition pour le plus beau jour de votre vie. Location de materiel haut de gamme pour vos ceremonies en Tunisie.",
+    "rights": "Tous droits reserves."
+  },
+  "HomePage": {
+    "eyebrow": "Location evenementielle en Tunisie",
+    "title": "Un mariage tunisien elegant, sans compromis.",
+    "description": "Mobilier, decoration, assises, vaisselle et pieces ceremoniales selectionnees pour composer une reception chaude, raffinee et parfaitement coordonnee.",
+    "catalogueCta": "Explorer le catalogue",
+    "quoteCta": "Preparer mon devis",
+    "stats": {
+      "items": "pieces disponibles",
+      "quote": "reponse devis",
+      "service": "et alentours"
+    },
+    "featureLabel": "Selection signature",
+    "featureTitle": "Des ensembles prets pour la ceremonie",
+    "featureText": "Choisissez un style, ajustez les quantites, puis envoyez une demande de devis claire en quelques minutes.",
+    "visualCards": {
+      "seating": "Salons & assises",
+      "decor": "Decoration & tables"
+    }
+  },
+  "Metadata": {
+    "title": "Mariage Tunisien - Location pour ceremonies",
+    "description": "Location de materiel et decoration de mariage en Tunisie."
+  }
+}
