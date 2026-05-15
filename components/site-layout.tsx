@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { useState, type ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";
+import { SiteFooter } from "@/components/site-footer";
 import {
   Sheet,
   SheetContent,
@@ -37,14 +38,14 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link href="/" className="group flex min-w-0 items-center gap-3">
             <span className="grid size-11 shrink-0 place-items-center rounded-lg bg-secondary font-serif text-xl font-bold text-primary shadow-sm">
-              M
+              ر
             </span>
             <span className="leading-none">
               <span className="block font-serif text-xl font-bold text-secondary sm:text-2xl">
-                Mariage
+                {t("brandName")}
               </span>
               <span className="block text-xs font-semibold uppercase tracking-[0.22em] text-primary">
-                Tunisien
+                {t("brandTagline")}
               </span>
             </span>
           </Link>
@@ -237,56 +238,7 @@ export function SiteLayout({ children }: { children: ReactNode }) {
         </div>
       </header>
       <main className="flex flex-1 flex-col">{children}</main>
-      <footer className="mt-auto border-t bg-secondary text-secondary-foreground">
-        <div className="mx-auto w-full max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-[1.4fr_1fr_1fr]">
-            <div>
-              <h3 className="mb-4 font-serif text-2xl font-bold text-primary">
-                Mariage Tunisien
-              </h3>
-              <p className="max-w-md text-secondary-foreground/80">
-                {t("footerDescription")}
-              </p>
-            </div>
-            <div>
-              <h4 className="mb-4 font-serif text-lg font-bold text-primary">
-                {t("quickLinks")}
-              </h4>
-              <ul className="space-y-2 text-secondary-foreground/80">
-                {navItems.slice(1).map((item) => (
-                  <li key={item.key}>
-                    <Link
-                      href={item.href}
-                      className="transition-colors hover:text-white"
-                    >
-                      {t(`nav.${item.key}`)}
-                    </Link>
-                  </li>
-                ))}
-                <li>
-                  <Link href="/devis" className="transition-colors hover:text-white">
-                    {t("quoteCta")}
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="mb-4 font-serif text-lg font-bold text-primary">
-                {t("contact")}
-              </h4>
-              <ul className="space-y-2 text-secondary-foreground/80">
-                <li>Route de Gammarth, Tunis, Tunisie</li>
-                <li>+216 22 123 456</li>
-                <li>contact@mariagetunisien.tn</li>
-              </ul>
-            </div>
-          </div>
-          <div className="mt-12 border-t border-secondary-foreground/20 pt-8 text-center text-sm text-secondary-foreground/60">
-            &copy; {new Date().getFullYear()} Mariage Tunisien.{" "}
-            {t("rights")}
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

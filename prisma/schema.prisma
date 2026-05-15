@@ -1,0 +1,103 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Product {
+  id                String          @id @default(cuid())
+  slug              String          @unique
+  category          ProductCategory
+  nameFr            String
+  nameAr            String
+  descriptionFr     String
+  descriptionAr     String
+  pricePerDay       Decimal         @db.Decimal(10, 2)
+  unit              PricingUnit
+  imageUrl          String?
+  minQuantity       Int             @default(1)
+  availableQuantity Int?
+  featured          Boolean         @default(false)
+  active            Boolean         @default(true)
+  sortOrder         Int             @default(0)
+  createdAt         DateTime        @default(now())
+  updatedAt         DateTime        @updatedAt
+  quoteItems        QuoteItem[]
+
+  @@index([category, active])
+  @@index([featured, active])
+}
+
+model QuoteRequest {
+  id            String      @id @default(cuid())
+  customerName  String
+  phone         String
+  eventDate     DateTime?
+  city          String?
+  guestCount    Int?
+  eventType     EventType   @default(WEDDING)
+  message       String?
+  status        QuoteStatus @default(NEW)
+  totalEstimate Decimal     @default(0) @db.Decimal(10, 2)
+  internalNotes String?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  items         QuoteItem[]
+
+  @@index([status, createdAt])
+  @@index([eventDate])
+}
+
+model QuoteItem {
+  id                  String       @id @default(cuid())
+  quoteRequestId      String
+  productId           String
+  productSnapshotName String
+  quantity            Int          @default(1)
+  unitPrice           Decimal      @db.Decimal(10, 2)
+  subtotal            Decimal      @db.Decimal(10, 2)
+  createdAt           DateTime     @default(now())
+  product             Product      @relation(fields: [productId], references: [id])
+  quoteRequest        QuoteRequest @relation(fields: [quoteRequestId], references: [id], onDelete: Cascade)
+
+  @@index([quoteRequestId])
+  @@index([productId])
+}
+
+enum ProductCategory {
+  COUPLE_SEATING
+  TENT
+  TABLE
+  GUEST_SEATING
+  LIGHTING
+  DECORATION
+  EXTRA
+}
+
+enum PricingUnit {
+  PIECE
+  SET
+  DAY
+  PACK
+  METER
+  GUEST
+}
+
+enum EventType {
+  WEDDING
+  ENGAGEMENT
+  HENNA
+  FAMILY_EVENT
+  OTHER
+}
+
+enum QuoteStatus {
+  NEW
+  CONTACTED
+  CONFIRMED
+  REJECTED
+  COMPLETED
+}

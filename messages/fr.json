@@ -1,5 +1,7 @@
 {
   "Layout": {
+    "brandName": "Ramzi Machaab pour les fêtes",
+    "brandTagline": "Fêtes & mariages",
     "nav": {
       "home": "Accueil",
       "catalogue": "Catalogue",
@@ -14,30 +16,160 @@
     "dailyEstimate": "Estimation par jour",
     "quickLinks": "Liens rapides",
     "contact": "Contact",
-    "footerDescription": "L'elegance et la tradition pour le plus beau jour de votre vie. Location de materiel haut de gamme pour vos ceremonies en Tunisie.",
-    "rights": "Tous droits reserves."
+    "admin": "Admin",
+    "address": "Tunisie",
+    "footerDescription": "Ramzi Machaab pour les fêtes accompagne vos mariages, fiançailles et grandes célébrations avec des tentes, salons, lumières et décorations traditionnelles soigneusement préparées.",
+    "footerCtaEyebrow": "Location pour événements",
+    "footerCtaTitle": "Préparez votre prochaine fête avec un devis clair.",
+    "footerSections": {
+      "shop": "Boutique",
+      "support": "Service client",
+      "contact": "Contact"
+    },
+    "footerLinks": {
+      "catalogue": "Catalogue matériel",
+      "gallery": "Réalisations",
+      "quote": "Demander un devis",
+      "contact": "Nous contacter",
+      "help": "Aide & disponibilité",
+      "customQuote": "Devis personnalisé",
+      "rentals": "Locations populaires"
+    },
+    "footerTrust": {
+      "fastQuote": "Réponse rapide",
+      "privateService": "Service privé"
+    },
+    "rights": "Tous droits réservés."
   },
   "HomePage": {
-    "eyebrow": "Location evenementielle en Tunisie",
-    "title": "Un mariage tunisien elegant, sans compromis.",
-    "description": "Mobilier, decoration, assises, vaisselle et pieces ceremoniales selectionnees pour composer une reception chaude, raffinee et parfaitement coordonnee.",
-    "catalogueCta": "Explorer le catalogue",
-    "quoteCta": "Preparer mon devis",
-    "stats": {
-      "items": "pieces disponibles",
-      "quote": "reponse devis",
-      "service": "et alentours"
+    "heroImageAlt": "Décoration de fête par Ramzi Machaab pour les fêtes",
+    "eyebrow": "Ramzi Machaab pour les fêtes",
+    "brandDisplay": "Ramzi Machaab pour les fêtes",
+    "titleBeforeBreak": "Composez votre pack mariage",
+    "titleAccent": "avec estimation claire.",
+    "description": "Choisissez les assises des mariés, les tentes, les tables, l'éclairage et la décoration. Ajoutez chaque élément au devis et visualisez une estimation avant confirmation.",
+    "catalogueCta": "Créer mon devis",
+    "galleryCta": "Voir nos réalisations",
+    "expertiseTitle": "Notre Savoir-faire",
+    "expertiseDescription": "Une équipe locale pour transformer votre espace en lieu de fête élégant, chaleureux et bien organisé.",
+    "expertise": {
+      "tents": {
+        "title": "Tentes & espaces de réception",
+        "text": "Installation de tentes, khaima et espaces d'accueil adaptés aux cérémonies familiales et aux grands événements."
+      },
+      "decor": {
+        "title": "Décoration & lumière",
+        "text": "Ambiance lumineuse, détails dorés, salons et éléments décoratifs pour une réception soignée."
+      },
+      "service": {
+        "title": "Préparation professionnelle",
+        "text": "Un accompagnement attentif avant et pendant l'événement pour que chaque détail soit prêt à temps."
+      }
     },
-    "featureLabel": "Selection signature",
-    "featureTitle": "Des ensembles prets pour la ceremonie",
-    "featureText": "Choisissez un style, ajustez les quantites, puis envoyez une demande de devis claire en quelques minutes.",
-    "visualCards": {
-      "seating": "Salons & assises",
-      "decor": "Decoration & tables"
+    "builderEyebrow": "Configurateur de location",
+    "builderTitle": "Tout le mariage se construit par catégorie",
+    "builderDescription": "Le client ne doit pas deviner. Il choisit chaque élément du mariage, compare les prix, ajoute les quantités et prépare un devis complet.",
+    "packageCategories": {
+      "coupleSeating": {
+        "title": "Assises mariés",
+        "text": "Trônes, sofas et salons spéciaux pour les mariés, avec plusieurs styles et niveaux de prix."
+      },
+      "tents": {
+        "title": "Tentes",
+        "text": "Petites, moyennes ou grandes tentes selon l'espace, le nombre d'invités et le type de cérémonie."
+      },
+      "tables": {
+        "title": "Tables",
+        "text": "Tables rondes, longues ou cérémoniales avec prix par pièce et options de présentation."
+      },
+      "guestSeating": {
+        "title": "Chaises & salons",
+        "text": "Chaises invités, salons traditionnels et coins photo pour compléter l'espace de réception."
+      },
+      "lighting": {
+        "title": "Éclairage",
+        "text": "Lustres, guirlandes lumineuses et ambiance pour rendre la soirée plus chaleureuse."
+      },
+      "decor": {
+        "title": "Décoration",
+        "text": "Entrées, fleurs, détails dorés, tapis et accessoires pour personnaliser le style du mariage."
+      }
+    },
+    "quoteFlowEyebrow": "Devis guidé",
+    "quoteFlowTitle": "Le client voit ce qu'il ajoute et le prix estimé",
+    "quoteFlowDescription": "Le site fonctionne comme un panier de location: le client sélectionne les articles, ajuste les quantités, puis envoie une demande avec la date, le lieu et le nombre d'invités.",
+    "quoteSteps": {
+      "choose": {
+        "title": "Choisir",
+        "text": "Parcourir le catalogue par catégorie et sélectionner les éléments nécessaires."
+      },
+      "estimate": {
+        "title": "Estimer",
+        "text": "Voir les prix par jour, par pièce ou par set avec un total provisoire."
+      },
+      "confirm": {
+        "title": "Confirmer",
+        "text": "Envoyer la demande pour recevoir une confirmation selon disponibilité et installation."
+      }
+    },
+    "estimateCard": {
+      "title": "Exemple d'estimation",
+      "description": "Une simulation simple pour montrer comment le futur devis sera présenté.",
+      "items": {
+        "couple": {
+          "label": "Assise mariés royale",
+          "price": "450 TND"
+        },
+        "tent": {
+          "label": "Tente moyenne",
+          "price": "750 TND"
+        },
+        "tables": {
+          "label": "12 tables invitées",
+          "price": "420 TND"
+        },
+        "decor": {
+          "label": "Décoration entrée",
+          "price": "280 TND"
+        }
+      },
+      "totalLabel": "Total estimé",
+      "total": "1 900 TND",
+      "note": "Le prix final peut varier selon la ville, la date, la disponibilité, la livraison et la complexité du montage.",
+      "cta": "Voir le catalogue"
+    },
+    "popularEyebrow": "Sélection Ramzi Machaab",
+    "popularTitle": "Points de départ populaires",
+    "popularCardDescription": "Ajoutez ce produit à votre sélection pour préparer un devis adapté à votre événement.",
+    "allCatalogue": "Tout le catalogue",
+    "products": {
+      "khaima-royale": "Khaima de réception",
+      "lustre-andalou": "Lustre décoratif",
+      "salon-traditionnel": "Salon traditionnel",
+      "table-doree": "Table cérémoniale"
     }
   },
   "Metadata": {
-    "title": "Mariage Tunisien - Location pour ceremonies",
-    "description": "Location de materiel et decoration de mariage en Tunisie."
+    "title": "Ramzi Machaab pour les fêtes - Location et décoration de fêtes",
+    "description": "Ramzi Machaab pour les fêtes: location de matériel, tentes, salons et décoration pour mariages et fêtes en Tunisie."
+  },
+  "Admin": {
+    "eyebrow": "Espace privé",
+    "loginTitle": "Connexion admin",
+    "loginDescription": "Connectez-vous avec les identifiants privés du site pour accéder au tableau de bord.",
+    "invalidCredentials": "Identifiants incorrects.",
+    "username": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "loginButton": "Se connecter",
+    "dashboardTitle": "Tableau de bord",
+    "dashboardDescription": "Cette zone est protégée. Les prochains modules pourront gérer les produits, les demandes de devis et la galerie.",
+    "logout": "Se déconnecter",
+    "stats": {
+      "pendingQuotes": "demandes en attente",
+      "featuredProducts": "produits populaires",
+      "sections": "sections du site"
+    },
+    "nextTitle": "Prochaine étape",
+    "nextDescription": "Brancher cette interface sur une base de données pour modifier le catalogue, ajouter des images et traiter les demandes de devis."
   }
 }
