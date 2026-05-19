@@ -31,24 +31,28 @@ const featuredProducts = [
     imageUrl: null,
     pricePerDay: 950,
     unit: "jour",
+    href: "/catalogue/tentes",
   },
   {
     id: "lustre-andalou",
     imageUrl: null,
     pricePerDay: 180,
     unit: "piece",
+    href: "/catalogue/eclairage",
   },
   {
     id: "salon-traditionnel",
     imageUrl: null,
     pricePerDay: 420,
     unit: "set",
+    href: "/catalogue/chaises-salons",
   },
   {
     id: "table-doree",
     imageUrl: null,
     pricePerDay: 65,
     unit: "piece",
+    href: "/catalogue/tables",
   },
 ];
 
@@ -70,10 +74,10 @@ export default async function Home({ params }: Props) {
   const t = await getTranslations({ locale, namespace: "HomePage" });
   const packageCategories = [
     { key: "coupleSeating", icon: Crown, href: "/catalogue/assises-maries" },
-    { key: "tents", icon: Tent, href: "/catalogue" },
-    { key: "tables", icon: Table2, href: "/catalogue" },
-    { key: "guestSeating", icon: Users, href: "/catalogue" },
-    { key: "lighting", icon: Lightbulb, href: "/catalogue" },
+    { key: "tents", icon: Tent, href: "/catalogue/tentes" },
+    { key: "tables", icon: Table2, href: "/catalogue/tables" },
+    { key: "guestSeating", icon: Users, href: "/catalogue/chaises-salons" },
+    { key: "lighting", icon: Lightbulb, href: "/catalogue/eclairage" },
     { key: "decor", icon: Sparkles, href: "/catalogue" },
   ] as const;
   const quoteSteps = [
@@ -140,11 +144,7 @@ export default async function Home({ params }: Props) {
 
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {packageCategories.map((item) => (
-              <Link
-                key={item.key}
-                href={item.href}
-                className="group block"
-              >
+              <Link key={item.key} href={item.href} className="group block">
                 <Card className="h-full rounded-2xl border-border/70 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl">
                   <CardHeader>
                     <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
@@ -269,7 +269,7 @@ export default async function Home({ params }: Props) {
             {featuredProducts.map((product) => (
               <Link
                 key={product.id}
-                href={`/catalogue/${product.id}`}
+                href={product.href}
                 className="group block"
               >
                 <Card className="h-full overflow-hidden rounded-2xl border-white/15 bg-white/[0.08] p-0 shadow-none transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:bg-white/[0.12] hover:shadow-xl hover:shadow-black/10">

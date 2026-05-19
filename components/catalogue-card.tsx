@@ -1,7 +1,7 @@
 "use client";
 
-import { ChevronDown, ChevronUp, Plus, Sparkles } from "lucide-react";
-import { useState } from "react";
+import { Check, ChevronDown, ChevronUp, Plus, Sparkles } from "lucide-react";
+import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -26,6 +26,7 @@ type CatalogueCardProps = {
   product: CatalogueProduct;
   labels: {
     add: string;
+    added: string;
     per: string;
     seeMore: string;
     seeLess: string;
@@ -33,8 +34,37 @@ type CatalogueCardProps = {
 };
 
 export function CatalogueCard({ product, labels }: CatalogueCardProps) {
-  const { addItem } = useQuoteCart();
+  const { addItem, items } = useQuoteCart();
   const [isExpanded, setIsExpanded] = useState(false);
+  const [showAddedFeedback, setShowAddedFeedback] = useState(false);
+  const [feedbackQuantity, setFeedbackQuantity] = useState(0);
+  const cartItem = items.find((item) => item.product.id === product.id);
+
+  function handleAddItem() {
+    const nextQuantity = (cartItem?.quantity ?? 0) + 1;
+
+    addItem({
+      id: product.id,
+      name: product.name,
+      pricePerDay: product.pricePerDay,
+      unit: product.unit,
+      imageUrl: product.imageUrl,
+    });
+    setFeedbackQuantity(nextQuantity);
+    setShowAddedFeedback(true);
+  }
+
+  useEffect(() => {
+    if (!showAddedFeedback) {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      setShowAddedFeedback(false);
+    }, 1800);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [showAddedFeedback]);
 
   return (
     <Card className="group h-full overflow-hidden rounded-2xl border-border/70 p-0 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl">
@@ -77,19 +107,26 @@ export function CatalogueCard({ product, labels }: CatalogueCardProps) {
           <Button
             size="icon"
             className="rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90"
-            onClick={() =>
-              addItem({
-                id: product.id,
-                name: product.name,
-                pricePerDay: product.pricePerDay,
-                unit: product.unit,
-                imageUrl: product.imageUrl,
-              })
-            }
+            onClick={handleAddItem}
             aria-label={labels.add}
           >
-            <Plus className="h-5 w-5" />
+            {showAddedFeedback ? (
+              <Check className="h-5 w-5" />
+            ) : (
+              <Plus className="h-5 w-5" />
+            )}
           </Button>
+        </div>
+
+        <div
+          aria-live="polite"
+          className="mb-3 min-h-6 text-sm font-semibold text-primary"
+        >
+          {showAddedFeedback
+            ? labels.added
+            : cartItem
+              ? `${cartItem.quantity} ${labels.added.toLowerCase()}`
+              : ""}
         </div>
 
         <CardDescription
@@ -118,20 +155,31 @@ export function CatalogueCard({ product, labels }: CatalogueCardProps) {
         <CardFooter className="mt-auto p-0 pt-5">
           <Button
             className="h-11 w-full rounded-xl bg-primary text-primary-foreground hover:bg-primary/90"
-            onClick={() =>
-              addItem({
-                id: product.id,
-                name: product.name,
-                pricePerDay: product.pricePerDay,
-                unit: product.unit,
-                imageUrl: product.imageUrl,
-              })
-            }
+            onClick={handleAddItem}
           >
-            {labels.add}
+            {showAddedFeedback ? labels.added : labels.add}
           </Button>
         </CardFooter>
       </CardContent>
+
+      {showAddedFeedback ? (
+        <div className="fixed bottom-5 end-5 z-[80] w-[min( calc(100vw-2rem),22rem)] rounded-2xl border border-primary/25 bg-card p-4 text-card-foreground shadow-2xl">
+          <div className="flex items-start gap-3">
+            <div className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground">
+              <Check className="h-4 w-4" />
+            </div>
+            <div className="min-w-0">
+              <p className="font-semibold text-foreground">{labels.added}</p>
+              <p className="mt-1 truncate text-sm text-muted-foreground">
+                {product.name}
+              </p>
+              <p className="mt-2 text-sm font-semibold text-primary">
+                {feedbackQuantity} {labels.added.toLowerCase()}
+              </p>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </Card>
   );
 }

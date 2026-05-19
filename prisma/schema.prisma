@@ -7,10 +7,26 @@ datasource db {
   provider = "postgresql"
 }
 
+model Category {
+  id            String    @id @default(cuid())
+  slug          String    @unique
+  nameFr        String
+  nameAr        String
+  descriptionFr String?
+  descriptionAr String?
+  sortOrder     Int       @default(0)
+  active        Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  products      Product[]
+
+  @@index([active, sortOrder])
+}
+
 model Product {
   id                String          @id @default(cuid())
   slug              String          @unique
-  category          ProductCategory
+  categoryId        String
   nameFr            String
   nameAr            String
   descriptionFr     String
@@ -25,9 +41,10 @@ model Product {
   sortOrder         Int             @default(0)
   createdAt         DateTime        @default(now())
   updatedAt         DateTime        @updatedAt
+  category          Category        @relation(fields: [categoryId], references: [id], onDelete: Restrict)
   quoteItems        QuoteItem[]
 
-  @@index([category, active])
+  @@index([categoryId, active])
   @@index([featured, active])
 }
 
@@ -65,16 +82,6 @@ model QuoteItem {
 
   @@index([quoteRequestId])
   @@index([productId])
-}
-
-enum ProductCategory {
-  COUPLE_SEATING
-  TENT
-  TABLE
-  GUEST_SEATING
-  LIGHTING
-  DECORATION
-  EXTRA
 }
 
 enum PricingUnit {

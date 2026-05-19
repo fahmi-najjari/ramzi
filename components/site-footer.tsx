@@ -83,11 +83,15 @@ export function SiteFooter() {
             <div className="mt-6 grid max-w-md grid-cols-1 gap-3 text-sm sm:grid-cols-2">
               <div className="flex items-center gap-3 rounded-md border bg-background px-3 py-3">
                 <Clock3 className="h-5 w-5 text-primary" />
-                <span className="font-medium">{t("footerTrust.fastQuote")}</span>
+                <span className="font-medium">
+                  {t("footerTrust.fastQuote")}
+                </span>
               </div>
               <div className="flex items-center gap-3 rounded-md border bg-background px-3 py-3">
                 <ShieldCheck className="h-5 w-5 text-accent" />
-                <span className="font-medium">{t("footerTrust.privateService")}</span>
+                <span className="font-medium">
+                  {t("footerTrust.privateService")}
+                </span>
               </div>
             </div>
           </section>

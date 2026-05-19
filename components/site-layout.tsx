@@ -4,7 +4,7 @@ import { Menu, ShoppingBag, X } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { useState, type ReactNode } from "react";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { SiteFooter } from "@/components/site-footer";
 import {
   Sheet,
@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/sheet";
 import { Link, useRouter } from "@/i18n/navigation";
 import { useQuoteCart } from "@/lib/quote-context";
+import { cn } from "@/lib/utils";
 
 const navItems = [
   { href: "/", key: "home" },
@@ -70,12 +71,15 @@ export function SiteLayout({ children }: { children: ReactNode }) {
             >
               {otherLocale}
             </Link>
-            <Button
-              className="hidden bg-secondary px-5 text-secondary-foreground hover:bg-secondary/90 md:inline-flex"
-              onClick={() => router.push("/devis")}
+            <Link
+              href="/devis"
+              className={cn(
+                buttonVariants(),
+                "hidden bg-secondary px-5 text-secondary-foreground hover:bg-secondary/90 md:inline-flex",
+              )}
             >
               {t("quoteCta")}
-            </Button>
+            </Link>
 
             <Sheet>
               <SheetTrigger asChild>
@@ -191,12 +195,15 @@ export function SiteLayout({ children }: { children: ReactNode }) {
                         {totalEstimate} TND
                       </span>
                     </div>
-                    <Button
-                      className="w-full bg-secondary text-secondary-foreground hover:bg-secondary/90"
-                      onClick={() => router.push("/devis")}
+                    <Link
+                      href="/devis"
+                      className={cn(
+                        buttonVariants(),
+                        "w-full bg-secondary text-secondary-foreground hover:bg-secondary/90",
+                      )}
                     >
                       {t("quoteCta")}
-                    </Button>
+                    </Link>
                   </div>
                 )}
               </SheetContent>
